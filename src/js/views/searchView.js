@@ -10,7 +10,6 @@ class SearchView extends View {
 
   getQuery() {
     const inputValue = this.#inputField.value;
-    this.#clearInput();
     return inputValue;
   }
 

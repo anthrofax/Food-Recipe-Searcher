@@ -47,6 +47,7 @@ const controlSearchResult = async function () {
   try {
     // 1. Get Query
     const query = searchView.getQuery();
+
     resultView.renderSpinner();
 
     // 2. Loading Search
@@ -58,7 +59,8 @@ const controlSearchResult = async function () {
     // 4. Render Pagination Button
     paginationView.render(model.state.search);
   } catch (err) {
-    resultView.renderError();
+    const sanitized1 = searchView.getQuery()
+    resultView.renderError(`Tidak bisa menemukan ${sanitized1} di daftar resep yang kami miliki`);
     console.log(err);
   }
 };
